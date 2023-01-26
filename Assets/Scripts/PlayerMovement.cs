@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 10f; //controls the speed of the player movement
-    public float impulse = 0.5f; 
+    public float impulse = 0.5f;
 
     Rigidbody rb; //letting the script know that there is a rigidbody. Using variable name rb for referencing it in further script
 
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(transform.up * impulse);
+            rb.AddForce(Vector3.up * impulse, ForceMode.Impulse);
         }
 
         rb.velocity = new Vector3(xMove, rb.velocity.y, zMove) * speed; //creates velocity in direction of value equal to keypress (WASD). rb.velocity.y deals with falling  + jumping by setting velocity to y.
